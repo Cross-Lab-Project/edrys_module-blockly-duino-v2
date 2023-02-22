@@ -114,11 +114,17 @@ Code.init = function () {
             y += element.offsetTop;
             element = element.offsetParent;
         } while (element);
+
+        let width = (container.offsetWidth <= document.body.offsetWidth ? container.offsetWidth : document.body.offsetWidth - 60)
+        
         blocklyDiv.style.left = x + 'px';
         blocklyDiv.style.top = y + 'px';
-        blocklyDiv.style.width = container.offsetWidth + 'px';
+        blocklyDiv.style.width = width + 'px';
         blocklyDiv.style.height = container.offsetHeight + 'px';
         Blockly.svgResize(Code.workspace);
+
+        document.getElementById("content_code").style.width = (document.body.offsetWidth - 20 - width) + "px"
+
 //        if (Code.workspace.RTL) {
 //          blocklyDiv.style.left = metrics.absoluteLeft + 'px';
 //          blocklyDiv.style.right = 'auto';

@@ -67,6 +67,7 @@ Code.setPort = function ()  {
 	document.getElementById('overlayForModals').style.display = "none";
 	document.getElementById('portListModal').classList.remove('show');
 	document.getElementById("portSelected_span").textContent = ' : ' + newPort;
+	/*
 	if (newPort != 'none') {
 		document.getElementById('serialButton').classList.add('active');
 		document.getElementById('serialButton').title = newPort;
@@ -87,5 +88,6 @@ Code.setPort = function ()  {
 				document.getElementById("content_hoverButton").textContent = "";
 			};
 		}
+	*/
 }
 ;
