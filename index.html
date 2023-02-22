@@ -175,11 +175,22 @@
                                         </div>
                                     </div>
                                 </div>
-                                <button id="uploadButton" class="iconButtons" style="float:right">
-                                    <span id="uploadButton_span">
-                                        <i class="fas fa-sign-out-alt"></i>
-                                    </span>
-                                </button>
+
+
+                                <div style="float:right">
+                                    <button id="copyCodeButton" class="iconButtons" onclick="Code.copyToClipboard()">
+                                        <span id="copyCodeButton_span">
+                                            <i class="far fa-copy"></i>
+                                        </span>
+                                    </button>
+    
+                                    <button id="uploadButton" class="iconButtons">
+                                        <span id="uploadButton_span">
+                                            <i class="fas fa-sign-out-alt"></i>
+                                        </span>
+                                    </button>
+                                </div>
+                                
                             
                     </td>
                 </tr>
@@ -197,11 +208,6 @@
                                         <span class="slider"></span>
                                     </label>
                                 </div>
-                                <button id="copyCodeButton" class="iconButtons" onclick="Code.copyToClipboard()">
-                                    <span id="copyCodeButton_span">
-                                        <i class="far fa-copy"></i>
-                                    </span>
-                                </button>
                                 <div id="content_code"></div>
                             </div>
                         </div>
