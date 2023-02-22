@@ -17,176 +17,173 @@
         <div class="table_wrapper">
             <table id="globalTable">
                 <tr id="optionsTop">
-                    <td  id="optionsTopTitle">
-                        <img src="./blocklyduino/media/logo_only2.png" style="width: 25px; vertical-align: middle;" />
-                        <span class="TitleText" id="appName"></span>
-                    </td>
+                    <td colspan="2" id="functionsIcons" class="tabMiddle" >
+                        <button id="menuButton" class="iconButtons" style="float: left" onclick="document.getElementById('menuPopup').style.display = 'block';document.getElementById('menuButton').classList.toggle('active');">
+                            <span id="menuButtonButton_span">
+                                <img src="./blocklyduino/media/logo_only2.png" style="width: 25px; vertical-align: middle;" />
+                            </span>
+                        </button>
+
+                        
+                        <span class="TitleText" style="float: left" id="appName"></span>
+                    
                     <!-- <span class="sketch_name_wrapper"> -->
                         <!-- <i class="mdi-image-edit sketch_name_icon active"></i> -->
                         <!-- <input id="sketch_name" class="sketch_name" type="text" size="10"> -->
-                    <!-- </span>         -->
-                    <td  id="optionsTopInteractiveHelp" class="tabMiddle">
-                        <span id="content_hoverButton"></span>
+                    <!-- </span>         -->    
+                                <div id="menuPopup" class="popup_bckgrd" style="display:none" onclick="document.getElementById('menuPopup').style.display = 'none';document.getElementById('menuButton').classList.toggle('active');">
+                                    <div id="buttonsMenuPopup" class="menu_div">
+                                        <div id="buttonsMenuPopupInside">
+                                            <button id="newButton" class="iconButtons" onclick="Code.newProject()">
+                                                <span id="newButton_span"></span>
+                                            </button>
+                                            <span id="newButton_span_menu" class="menu_text"></span>
+                                            <br>
+                                            <button id="loadXMLfakeButton" class="iconButtons" onclick="Code.loadXmlBlocklyFile()">
+                                                <span id="loadXMLfakeButton_span"></span>
+                                            </button>
+                                            <span id="loadXMLfakeButton_span_menu" class="menu_text"></span>
+                                            <br>
+                                            <button id="saveXMLButton" class="iconButtons" onclick="Code.saveXmlBlocklyFile()">
+                                                <span id="saveXMLButton_span"></span>
+                                            </button>
+                                            <span id="saveXMLButton_span_menu" class="menu_text"></span>
+                                            <br>
+                                            <button id="saveCodeButton" class="iconButtons" onclick="Code.saveCodeFile()">
+                                                <span id="saveCodeButton_span"></span>
+                                            </button>
+                                            <span id="saveCodeButton_span_menu" class="menu_text"></span>
+                                            <br>
+                                            <hr>
+                                            <button id="parametersButton" class="iconButtons" onclick="document.getElementById('lateral-panel-setup-input').click();">
+                                                <span id="parametersButton_span">
+                                                    <i class="fas fa-cog"></i>
+                                                </span>
+                                            </button>
+                                            <span id="parametersButton_span_menu" class="menu_text"></span>
+                                            <br>
+                                            <hr>
+                                            <button id="resetButton" class="iconButtons" onclick="Code.ResetWorkspace()">
+                                                <span id="resetButton_span">
+                                                    <i class="fas fa-power-off"></i>
+                                                </span>
+                                            </button>
+                                            <span id="resetButton_span_menu" class="menu_text"></span>
+                                            <br>
+                                            <hr>
+                                            <button id="helpButton" class="iconButtons" onclick="toggleDisplayHelpModal()">
+                                                <span id="helpButton_span">
+                                                    <i class="fas fa-question"></i>
+                                                </span>
+                                            </button>
+                                            <span id="helpButton_span_menu" class="menu_text"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button id="fullScreenButton" class="iconButtons" onclick="fullScreen()">
+                                    <span id="fullScreenButton_span">
+                                        <i class="fas fa-expand-arrows-alt"></i>
+                                    </span>
+                                </button>
+                                <button id="undoButton" class="iconButtons" onclick="Code.Undo()">
+                                    <span id="undoButton_span">
+                                        <i class="fas fa-undo-alt"></i>
+                                    </span>
+                                </button>
+                                <button id="redoButton" class="iconButtons" onclick="Code.Redo()">                           
+                                    <span id="redoButton_span">
+                                        <i class="fas fa-redo-alt"></i>
+                                    </span>
+                                </button>
+                                <div id="toolsPopup" class="popup_bckgrd" style="display:none" onclick="document.getElementById('toolsPopup').style.display = 'none';">
+                                    <div id="buttonsToolsPopup" class="menu_div">
+                                        <div id="buttonsToolsPopupInside">
+                                            <button id="wiringButton" class="iconButtons">
+                                                <span id="wiringButton_span">
+                                                    <i class="fas fa-code-branch"></i>
+                                                </span>
+                                            </button>
+                                            <span id="wiringButton_span_menu" class="menu_text"></span>
+                                            <br>
+                                            <hr>
+                                            <button id="factoryButton" class="iconButtons">
+                                                <span id="factoryButton_span">
+                                                    <i class="fas fa-industry"></i>
+                                                </span>
+                                            </button>
+                                            <span id="factoryButton_span_menu" class="menu_text"></span>
+                                            <br>
+                                            <hr>
+                                            <button id="htmlButton" class="iconButtons">
+                                                <span id="htmlButton_span">
+                                                    <i class="fab fa-firefox-browser"></i>
+                                                </span>
+                                            </button>
+                                            <span id="htmlButton_span_menu" class="menu_text"></span>
+                                            <br>
+                                            <hr>
+                                            <button id="colorConversionButton" class="iconButtons" onclick="">
+                                                <span id="colorConversionButton_span">
+                                                    <i class="fas fa-swatchbook"></i>
+                                                </span>
+                                            </button>
+                                            <span id="colorConversionButton_span_menu" class="menu_text"></span>
+                                            <br>
+                                            <hr>
+                                            <button id="dataConversionButton" class="iconButtons" onclick="">
+                                                <span id="dataConversionButton_span">
+                                                    <i class="fas fa-exchange-alt"></i>
+                                                </span>
+                                            </button>
+                                            <span id="dataConversionButton_span_menu" class="menu_text"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="iotPopup" class="popup_bckgrd" style="display:none" onclick="document.getElementById('iotPopup').style.display = 'none';document.getElementById('iotConnectButton').classList.toggle('active');">
+                                    <div id="buttonsIotPopup" class="menu_div">
+                                        <div id="buttonsIotPopupInside">
+                                            <button id="launchWebServer" class="iconButtons CLI">
+                                                <span id="launchWebServer_span">
+                                                    <i class="fas fa-network-wired"></i>
+                                                </span>
+                                            </button>
+                                            <span id="launchWebServer_span_menu" class="menu_text"></span>
+                                            <br>
+                                            <hr>
+                                            <button id="papyrusConnect" class="iconButtons CLI" onclick="papyrusConnect()">
+                                                <span id="papyrusConnect_span">
+                                                    <img src="./blocklyduino/media/Eclipse_papyrus_logo.png" style="width: 30px; height: 30px; vertical-align: middle;"/>
+                                                </span>
+                                            </button>
+                                            <span id="papyrusConnect_span_menu" class="menu_text"></span>
+                                            <br>
+                                            <hr>
+                                            <button id="registerToOrchestrator" class="iconButtons CLI" onclick="ArrowheadRegister()">
+                                                <span id="registerToOrchestrator_span">
+                                                    <img src="./blocklyduino/media/arrowheadtools_invert.png" style="width: 30px; height: 30px; vertical-align: middle;"/>
+                                                </span>
+                                            </button>
+                                            <span id="registerToOrchestrator_span_menu" class="menu_text"></span>
+                                            <br>
+                                            <hr>
+                                            <button id="blynkConnect" class="iconButtons CLI" onclick="">
+                                                <span id="blynkConnect_span">
+                                                    <img src="./blocklyduino/media/blynk.png" style="width: 30px; height: 30px; vertical-align: middle;"/>
+                                                </span>
+                                            </button>
+                                            <span id="blynkConnect_span_menu" class="menu_text"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button id="uploadButton" class="iconButtons" style="float:right">
+                                    <span id="uploadButton_span">
+                                        <i class="fas fa-sign-out-alt"></i>
+                                    </span>
+                                </button>
+                            
                     </td>
                 </tr>
-                <tr  id="functionsIcons">
-                    <td colspan="2">
-                        <button id="menuButton" class="iconButtons" onclick="document.getElementById('menuPopup').style.display = 'block';document.getElementById('menuButton').classList.toggle('active');">
-                            <span id="menuButtonButton_span">
-                                <i class="fas fa-ellipsis-v"></i>
-                            </span>
-                        </button>
-                        <div id="menuPopup" class="popup_bckgrd" style="display:none" onclick="document.getElementById('menuPopup').style.display = 'none';document.getElementById('menuButton').classList.toggle('active');">
-                            <div id="buttonsMenuPopup" class="menu_div">
-                                <div id="buttonsMenuPopupInside">
-                                    <button id="newButton" class="iconButtons" onclick="Code.newProject()">
-                                        <span id="newButton_span"></span>
-                                    </button>
-                                    <span id="newButton_span_menu" class="menu_text"></span>
-                                    <br>
-                                    <button id="loadXMLfakeButton" class="iconButtons" onclick="Code.loadXmlBlocklyFile()">
-                                        <span id="loadXMLfakeButton_span"></span>
-                                    </button>
-                                    <span id="loadXMLfakeButton_span_menu" class="menu_text"></span>
-                                    <br>
-                                    <button id="saveXMLButton" class="iconButtons" onclick="Code.saveXmlBlocklyFile()">
-                                        <span id="saveXMLButton_span"></span>
-                                    </button>
-                                    <span id="saveXMLButton_span_menu" class="menu_text"></span>
-                                    <br>
-                                    <button id="saveCodeButton" class="iconButtons" onclick="Code.saveCodeFile()">
-                                        <span id="saveCodeButton_span"></span>
-                                    </button>
-                                    <span id="saveCodeButton_span_menu" class="menu_text"></span>
-                                    <br>
-                                    <hr>
-                                    <button id="parametersButton" class="iconButtons" onclick="document.getElementById('lateral-panel-setup-input').click();">
-                                        <span id="parametersButton_span">
-                                            <i class="fas fa-cog"></i>
-                                        </span>
-                                    </button>
-                                    <span id="parametersButton_span_menu" class="menu_text"></span>
-                                    <br>
-                                    <hr>
-                                    <button id="resetButton" class="iconButtons" onclick="Code.ResetWorkspace()">
-                                        <span id="resetButton_span">
-                                            <i class="fas fa-power-off"></i>
-                                        </span>
-                                    </button>
-                                    <span id="resetButton_span_menu" class="menu_text"></span>
-                                    <br>
-                                    <hr>
-                                    <button id="helpButton" class="iconButtons" onclick="toggleDisplayHelpModal()">
-                                        <span id="helpButton_span">
-                                            <i class="fas fa-question"></i>
-                                        </span>
-                                    </button>
-                                    <span id="helpButton_span_menu" class="menu_text"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <button id="fullScreenButton" class="iconButtons" onclick="fullScreen()">
-                            <span id="fullScreenButton_span">
-                                <i class="fas fa-expand-arrows-alt"></i>
-                            </span>
-                        </button>
-                        <button id="undoButton" class="iconButtons" onclick="Code.Undo()">
-                            <span id="undoButton_span">
-                                <i class="fas fa-undo-alt"></i>
-                            </span>
-                        </button>
-                        <button id="redoButton" class="iconButtons" onclick="Code.Redo()">                           
-                            <span id="redoButton_span">
-                                <i class="fas fa-redo-alt"></i>
-                            </span>
-                        </button>
-                        <div id="toolsPopup" class="popup_bckgrd" style="display:none" onclick="document.getElementById('toolsPopup').style.display = 'none';">
-                            <div id="buttonsToolsPopup" class="menu_div">
-                                <div id="buttonsToolsPopupInside">
-                                    <button id="wiringButton" class="iconButtons">
-                                        <span id="wiringButton_span">
-                                            <i class="fas fa-code-branch"></i>
-                                        </span>
-                                    </button>
-                                    <span id="wiringButton_span_menu" class="menu_text"></span>
-                                    <br>
-                                    <hr>
-                                    <button id="factoryButton" class="iconButtons">
-                                        <span id="factoryButton_span">
-                                            <i class="fas fa-industry"></i>
-                                        </span>
-                                    </button>
-                                    <span id="factoryButton_span_menu" class="menu_text"></span>
-                                    <br>
-                                    <hr>
-                                    <button id="htmlButton" class="iconButtons">
-                                        <span id="htmlButton_span">
-                                            <i class="fab fa-firefox-browser"></i>
-                                        </span>
-                                    </button>
-                                    <span id="htmlButton_span_menu" class="menu_text"></span>
-                                    <br>
-                                    <hr>
-                                    <button id="colorConversionButton" class="iconButtons" onclick="">
-                                        <span id="colorConversionButton_span">
-                                            <i class="fas fa-swatchbook"></i>
-                                        </span>
-                                    </button>
-                                    <span id="colorConversionButton_span_menu" class="menu_text"></span>
-                                    <br>
-                                    <hr>
-                                    <button id="dataConversionButton" class="iconButtons" onclick="">
-                                        <span id="dataConversionButton_span">
-                                            <i class="fas fa-exchange-alt"></i>
-                                        </span>
-                                    </button>
-                                    <span id="dataConversionButton_span_menu" class="menu_text"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="iotPopup" class="popup_bckgrd" style="display:none" onclick="document.getElementById('iotPopup').style.display = 'none';document.getElementById('iotConnectButton').classList.toggle('active');">
-                            <div id="buttonsIotPopup" class="menu_div">
-                                <div id="buttonsIotPopupInside">
-                                    <button id="launchWebServer" class="iconButtons CLI">
-                                        <span id="launchWebServer_span">
-                                            <i class="fas fa-network-wired"></i>
-                                        </span>
-                                    </button>
-                                    <span id="launchWebServer_span_menu" class="menu_text"></span>
-                                    <br>
-                                    <hr>
-                                    <button id="papyrusConnect" class="iconButtons CLI" onclick="papyrusConnect()">
-                                        <span id="papyrusConnect_span">
-                                            <img src="./blocklyduino/media/Eclipse_papyrus_logo.png" style="width: 30px; height: 30px; vertical-align: middle;"/>
-                                        </span>
-                                    </button>
-                                    <span id="papyrusConnect_span_menu" class="menu_text"></span>
-                                    <br>
-                                    <hr>
-                                    <button id="registerToOrchestrator" class="iconButtons CLI" onclick="ArrowheadRegister()">
-                                        <span id="registerToOrchestrator_span">
-                                            <img src="./blocklyduino/media/arrowheadtools_invert.png" style="width: 30px; height: 30px; vertical-align: middle;"/>
-                                        </span>
-                                    </button>
-                                    <span id="registerToOrchestrator_span_menu" class="menu_text"></span>
-                                    <br>
-                                    <hr>
-                                    <button id="blynkConnect" class="iconButtons CLI" onclick="">
-                                        <span id="blynkConnect_span">
-                                            <img src="./blocklyduino/media/blynk.png" style="width: 30px; height: 30px; vertical-align: middle;"/>
-                                        </span>
-                                    </button>
-                                    <span id="blynkConnect_span_menu" class="menu_text"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <button id="uploadButton" class="iconButtons">
-                            <span id="uploadButton_span">
-                                <i class="fas fa-sign-out-alt"></i>
-                            </span>
-                        </button>
-                    </td>
-                </tr>
+                
                 <tr id="globalWorkspace">
                     <td colspan="2">
                         <div class="content_wrapper">

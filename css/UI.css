@@ -61,7 +61,7 @@ html[dir=rtl] {
 #buttonsMenuPopup{
     animation: fadein 0.5s;
     position: absolute;
-    top: 70px;
+    top: 41px;
     left: 5px;
     padding: 5px;
     margin: 5px;
@@ -252,6 +252,7 @@ td.tabMiddle {
     padding-right: 5px;
     text-align: center;
     vertical-align: middle;
+
 }
 
 #separator {
