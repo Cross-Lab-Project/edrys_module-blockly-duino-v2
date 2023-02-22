@@ -172,28 +172,10 @@ document.getElementById('redoButton').onmouseover = function () {
 document.getElementById('redoButton').onmouseout = function () {
     document.getElementById("content_hoverButton").textContent = "";
 };
-document.getElementById('verifyButton').onmouseover = function () {
-    document.getElementById("content_hoverButton").textContent = MSG['verifyButton_span'];
-};
-document.getElementById('verifyButton').onmouseout = function () {
-    document.getElementById("content_hoverButton").textContent = "";
-};
-document.getElementById('serialButton').onmouseover = function () {
-    document.getElementById("content_hoverButton").textContent = MSG['serialButtonSpan'];
-};
-document.getElementById('serialButton').onmouseout = function () {
-    document.getElementById("content_hoverButton").textContent = "";
-};
 document.getElementById('uploadButton').onmouseover = function () {
     document.getElementById("content_hoverButton").textContent = MSG['uploadButton_span'];
 };
 document.getElementById('uploadButton').onmouseout = function () {
-    document.getElementById("content_hoverButton").textContent = "";
-};
-document.getElementById('serialConnectButton').onmouseover = function () {
-    document.getElementById("content_hoverButton").textContent = MSG['serialConnectButton_span'];
-};
-document.getElementById('serialConnectButton').onmouseout = function () {
     document.getElementById("content_hoverButton").textContent = "";
 };
 document.getElementById('saveCodeButton').onmouseover = function () {
@@ -238,12 +220,6 @@ document.getElementById('helpButton').onmouseover = function () {
 document.getElementById('helpButton').onmouseout = function () {
     document.getElementById("content_hoverButton").textContent = "";
 };
-document.getElementById('toolsButton').onmouseover = function () {
-    document.getElementById("content_hoverButton").textContent = MSG['toolsButton_span'];
-};
-document.getElementById('toolsButton').onmouseout = function () {
-    document.getElementById("content_hoverButton").textContent = "";
-};
 document.getElementById('wiringButton').onmouseover = function () {
     document.getElementById("content_hoverButton").textContent = MSG['wiringButton_span'];
 };
@@ -272,12 +248,6 @@ document.getElementById('dataConversionButton').onmouseover = function () {
     document.getElementById("content_hoverButton").textContent = MSG['dataConversionButton_span'];
 };
 document.getElementById('dataConversionButton').onmouseout = function () {
-    document.getElementById("content_hoverButton").textContent = "";
-};
-document.getElementById('iotConnectButton').onmouseover = function () {
-    document.getElementById("content_hoverButton").textContent = MSG['iotConnectButton_span'];
-};
-document.getElementById('iotConnectButton').onmouseout = function () {
     document.getElementById("content_hoverButton").textContent = "";
 };
 document.getElementById('launchWebServer').onmouseover = function () {

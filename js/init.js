@@ -253,7 +253,6 @@ Code.init = function () {
             Blockly.svgResize(Code.workspace);
         }
     }
-    dragElement(document.getElementById("barre_h"), "V", document.getElementById("wrapper_up"), document.getElementById("content_serial"));
     dragElement(document.getElementById("separator"), "H", document.getElementById("content_area"), document.getElementById("content_code"));
 
     Code.renderContent();
@@ -306,13 +305,11 @@ Code.initLanguage = function () {
     document.getElementById('codeEditorColorSpan').textContent = MSG['codeEditorColorSpan'];
     document.getElementById('themeSpan').textContent = MSG['themeSpan'];
     document.getElementById('renderSpan').textContent = MSG['renderSpan'];
-    document.getElementById('serialButton').title = MSG['serialButtonSpan'];
+    // document.getElementById('serialButton').title = MSG['serialButtonSpan'];
     document.getElementById('fullScreenButton').title = MSG['fullScreenButton_span'];
     document.getElementById('undoButton').title = MSG['undoButton_span'];
     document.getElementById('redoButton').title = MSG['redoButton_span'];
-    document.getElementById('verifyButton').title = MSG['verifyButton_span'];
     document.getElementById('uploadButton').title = MSG['uploadButton_span'];
-    document.getElementById('serialConnectButton').title = MSG['serialConnectButton_span'];
     document.getElementById('saveCodeButton').title = MSG['saveCodeButton_span'];
     document.getElementById('newButton').title = MSG['newButton_span'];
     document.getElementById('saveXMLButton').title = MSG['saveXMLButton_span'];
@@ -331,9 +328,8 @@ Code.initLanguage = function () {
     document.getElementById('helpModalSpan_text').innerHTML = MSG['helpModalSpan_text'];
     document.getElementById('copyCodeButton').title = MSG['copyCodeButton_span'];
     document.getElementById('keyMappingModalSpan').textContent = MSG['keyMappingModalSpan'];
-    document.getElementById('detailedCompilation_span').textContent = MSG['detailedCompilation_span'];
     // menu tools
-    document.getElementById('toolsButton').title = MSG['toolsButton_span'];
+    // document.getElementById('toolsButton').title = MSG['toolsButton_span'];
     document.getElementById('wiringButton').title = MSG['wiringButton_span'];
     document.getElementById('factoryButton').title = MSG['factoryButton_span'];
     document.getElementById('htmlButton').title = MSG['htmlButton_span'];
@@ -345,7 +341,6 @@ Code.initLanguage = function () {
     document.getElementById('colorConversionButton_span_menu').textContent = MSG['colorConversionButton_span'];
     document.getElementById('dataConversionButton_span_menu').textContent = MSG['dataConversionButton_span'];
     // menu IoT
-    document.getElementById('iotConnectButton').title = MSG['iotConnectButton_span'];
     document.getElementById('launchWebServer').title = MSG['launchWebServer_span'];
     document.getElementById('papyrusConnect').title = MSG['papyrusConnect_span'];
     document.getElementById('registerToOrchestrator').title = MSG['registerToOrchestrator_span'];

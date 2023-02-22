@@ -26,27 +26,6 @@ Code.setBoard = function () {
     }
     document.getElementById('boardMenu').value = boardId;
     profile.default = profile[boardId][0];
-	// change tooltip & info when a board is selected
-	if (boardId != "none") {
-		document.getElementById('boardButton').classList.add('active');
-		document.getElementById('boardButton').title = profile["default"].description;
-		document.getElementById('boardButton').onmouseover = function () {
-			document.getElementById("content_hoverButton").textContent = profile["default"].description;
-		};
-		document.getElementById('boardButton').onmouseout = function () {
-			document.getElementById("content_hoverButton").textContent = "";
-		};
-	}
-		else {
-			document.getElementById('boardButton').classList.remove('active');
-			document.getElementById('boardButton').title = MSG['boardButtonSpan'];
-			document.getElementById('boardButton').onmouseover = function () {
-				document.getElementById("content_hoverButton").textContent = MSG['boardButtonSpan'];
-			};
-			document.getElementById('boardButton').onmouseout = function () {
-				document.getElementById("content_hoverButton").textContent = "";
-			};
-		}
 };
 
 /**
