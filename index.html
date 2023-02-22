@@ -42,22 +42,22 @@
                                 <button id="newButton" class="iconButtons" onclick="Code.newProject()">
                                     <span id="newButton_span"></span>
                                 </button>
-                                <span id="newButton_span_menu" class="menu_text"></span>
+                                <span id="newButton_span_menu" class="menu_text" onclick="Code.newProject()"></span>
                                 <br>
                                 <button id="loadXMLfakeButton" class="iconButtons" onclick="Code.loadXmlBlocklyFile()">
                                     <span id="loadXMLfakeButton_span"></span>
                                 </button>
-                                <span id="loadXMLfakeButton_span_menu" class="menu_text"></span>
+                                <span id="loadXMLfakeButton_span_menu" class="menu_text" onclick="Code.loadXmlBlocklyFile()"></span>
                                 <br>
                                 <button id="saveXMLButton" class="iconButtons" onclick="Code.saveXmlBlocklyFile()">
                                     <span id="saveXMLButton_span"></span>
                                 </button>
-                                <span id="saveXMLButton_span_menu" class="menu_text"></span>
+                                <span id="saveXMLButton_span_menu" class="menu_text" onclick="Code.saveXmlBlocklyFile()"></span>
                                 <br>
                                 <button id="saveCodeButton" class="iconButtons" onclick="Code.saveCodeFile()">
                                     <span id="saveCodeButton_span"></span>
                                 </button>
-                                <span id="saveCodeButton_span_menu" class="menu_text"></span>
+                                <span id="saveCodeButton_span_menu" class="menu_text" onclick="Code.saveCodeFile()"></span>
                                 <br>
                                 <hr>
                                 <button id="parametersButton" class="iconButtons"
@@ -196,7 +196,7 @@
                             </span>
                         </button>
 
-                        <button id="uploadButton" class="iconButtons">
+                        <button id="uploadButton" class="iconButtons" onclick="alert('compile')">
                             <span id="uploadButton_span">
                                 <i class="fas fa-sign-out-alt"></i>
                             </span>
