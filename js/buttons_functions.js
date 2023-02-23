@@ -224,6 +224,10 @@ Code.saveCodeFile = function () {
     });
 };
 
+Code.getArduino = function () {
+    return Blockly.Arduino.workspaceToCode(Code.workspace);
+}
+
 /**
  * Creates an XML file containing the blocks from the Blockly workspace and
  * prompts the users to save it into their local file system.
@@ -297,10 +301,10 @@ Code.loadXmlBlocklyFile = function () {
  * @param {!string} defaultXml String of XML code for the blocks.
  * @return {!boolean} Indicates if the XML into blocks parse was successful.
  */
-Code.loadBlocksfromXml = function (defaultXml) {
+Code.loadBlocksfromXml = function (defaultXml, withConfirmation=true) {
     var count = Code.workspace.getAllBlocks().length;
     var xml = Blockly.Xml.textToDom(defaultXml);
-    if (count > 0) {
+    if (count > 0 && withConfirmation) {
         Blockly.confirm(MSG['loadXML_span'], function (confirm) {
             if (confirm)
                 Code.workspace.clear();
@@ -308,6 +312,7 @@ Code.loadBlocksfromXml = function (defaultXml) {
                 return true;
         });
     } else {
+        Code.workspace.clear();
         Blockly.Xml.domToWorkspace(xml, Code.workspace);
         return true;
     }

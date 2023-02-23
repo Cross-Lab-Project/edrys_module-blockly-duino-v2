@@ -2,17 +2,21 @@
 <HTML>
 
 <head>
+    <meta name="fetch" content="false">
+    <meta name="description"
+        content="Blockly-editor integration for <a href='https://www.arduino.cc' targe='_blank'>Arduino</a>. See the possible the possible configuration options:<br><br><a href='https://github.com/Cross-Lab-Project/edrys_module-blockly-duino-v2' target='_blank'>https://github.com/Cross-Lab-Project/edrys_module-blockly-duino-v2</a>" />
+    <meta name="show-in" content="*" />
     <meta charset="utf-8">
     <meta name="google" value="notranslate">
     <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <title>blocklyduino</title>
-    <link rel="icon" type="image/png" href="./blocklyduino/media/logo_only.png" />
-    <link rel="stylesheet" href="./css/font_awesome_all.min.css" />
-    <link rel="stylesheet" href="./css/keyboard_nav.css" />
-    <link rel="stylesheet" href="./css/lateral-panel.css" />
-    <link rel="stylesheet" href="./css/UI.css" />
-    <link rel="stylesheet" href="./blocklyduino/css/blocklyduino.css" />
-    <link rel="stylesheet" href="./blocklyduino/css/override_css.css" />
+    <link rel="icon" type="image/png" href="blocklyduino/media/logo_only.png" />
+    <link rel="stylesheet" href="css/font_awesome_all.min.css" />
+    <link rel="stylesheet" href="css/keyboard_nav.css" />
+    <link rel="stylesheet" href="css/lateral-panel.css" />
+    <link rel="stylesheet" href="css/UI.css" />
+    <link rel="stylesheet" href="blocklyduino/css/blocklyduino.css" />
+    <link rel="stylesheet" href="blocklyduino/css/override_css.css" />
 </head>
 
 <body>
@@ -47,17 +51,20 @@
                                 <button id="loadXMLfakeButton" class="iconButtons" onclick="Code.loadXmlBlocklyFile()">
                                     <span id="loadXMLfakeButton_span"></span>
                                 </button>
-                                <span id="loadXMLfakeButton_span_menu" class="menu_text" onclick="Code.loadXmlBlocklyFile()"></span>
+                                <span id="loadXMLfakeButton_span_menu" class="menu_text"
+                                    onclick="Code.loadXmlBlocklyFile()"></span>
                                 <br>
                                 <button id="saveXMLButton" class="iconButtons" onclick="Code.saveXmlBlocklyFile()">
                                     <span id="saveXMLButton_span"></span>
                                 </button>
-                                <span id="saveXMLButton_span_menu" class="menu_text" onclick="Code.saveXmlBlocklyFile()"></span>
+                                <span id="saveXMLButton_span_menu" class="menu_text"
+                                    onclick="Code.saveXmlBlocklyFile()"></span>
                                 <br>
                                 <button id="saveCodeButton" class="iconButtons" onclick="Code.saveCodeFile()">
                                     <span id="saveCodeButton_span"></span>
                                 </button>
-                                <span id="saveCodeButton_span_menu" class="menu_text" onclick="Code.saveCodeFile()"></span>
+                                <span id="saveCodeButton_span_menu" class="menu_text"
+                                    onclick="Code.saveCodeFile()"></span>
                                 <br>
                                 <hr>
                                 <button id="parametersButton" class="iconButtons"
@@ -196,7 +203,7 @@
                             </span>
                         </button>
 
-                        <button id="uploadButton" class="iconButtons" onclick="alert('compile')">
+                        <button id="uploadButton" class="iconButtons" onclick="window.run()">
                             <span id="uploadButton_span">
                                 <i class="fas fa-sign-out-alt"></i>
                             </span>
@@ -541,82 +548,82 @@
     </div>
 </body>
 <!-- Blockly libraries -->
-<script src="./@blockly/blockly_compressed.js"></script>
-<script src="./@blockly/blocks_compressed.js"></script>
-<script src="./@blockly/closure/goog/base.js"></script>
+<script src="@blockly/blockly_compressed.js"></script>
+<script src="@blockly/blocks_compressed.js"></script>
+<script src="@blockly/closure/goog/base.js"></script>
 <!-- Blockly libraries for themes and renderers -->
-<script src="./@blockly/core/workspace_comment.js" async></script>
-<script src="./@blockly/core/workspace_comment_svg.js" async></script>
-<script src="./@blockly/core/workspace_comment_render_svg.js" async></script>
-<script src="./@blockly/core/renderers/minimalist/info.js" async></script>
-<script src="./@blockly/core/renderers/minimalist/constants.js" async></script>
-<script src="./@blockly/core/renderers/minimalist/drawer.js" async></script>
-<script src="./@blockly/core/renderers/minimalist/renderer.js" async></script>
-<script src="./@blockly/core/theme/modern.js" async></script>
-<script src="./@blockly/core/theme/zelos.js" async></script>
+<script src="@blockly/core/workspace_comment.js" async></script>
+<script src="@blockly/core/workspace_comment_svg.js" async></script>
+<script src="@blockly/core/workspace_comment_render_svg.js" async></script>
+<script src="@blockly/core/renderers/minimalist/info.js" async></script>
+<script src="@blockly/core/renderers/minimalist/constants.js" async></script>
+<script src="@blockly/core/renderers/minimalist/drawer.js" async></script>
+<script src="@blockly/core/renderers/minimalist/renderer.js" async></script>
+<script src="@blockly/core/theme/modern.js" async></script>
+<script src="@blockly/core/theme/zelos.js" async></script>
 <!-- Blockly libraries of function, from different demos -->
-<script src="./@blockly/demos/code/code.js"></script>
-<script src="./@blockly/demos/keyboard_nav/line_cursor.js" async></script>
-<script src="./@blockly/tests/playgrounds/screenshot.js" async></script>
+<script src="@blockly/demos/code/code.js"></script>
+<script src="@blockly/demos/keyboard_nav/line_cursor.js" async></script>
+<script src="@blockly/tests/playgrounds/screenshot.js" async></script>
 <!-- BlocklyDuino external toolbox hacked -->
-<script src="./blocklyduino/toolbox/toolbox_arduino.json"></script>
-<script src="./blocklyduino/toolbox/toolbox_ds18b20.json"></script>
-<script src="./blocklyduino/toolbox/toolbox_grove.json"></script>
-<script src="./blocklyduino/toolbox/toolbox_relay.json"></script>
-<script src="./blocklyduino/toolbox/toolbox_servo.json"></script>
-<script src="./blocklyduino/toolbox/toolbox_standard.json"></script>
+<script src="blocklyduino/toolbox/toolbox_arduino.json"></script>
+<script src="blocklyduino/toolbox/toolbox_ds18b20.json"></script>
+<script src="blocklyduino/toolbox/toolbox_grove.json"></script>
+<script src="blocklyduino/toolbox/toolbox_relay.json"></script>
+<script src="blocklyduino/toolbox/toolbox_servo.json"></script>
+<script src="blocklyduino/toolbox/toolbox_standard.json"></script>
 <!-- Blockly libraries of function, hacked from different demos -->
-<script src="./js/blockly/keyboard_nav.js"></script>
-<script src="./js/blockly/playground.js"></script>
-<script src="./js/init.js"></script>
-<script src="./js/typed_variable.js"></script>
-<script src="./js/buttons_functions.js"></script>
-<script src="./js/dialog.js"></script>
-<script src="./js/renderingConstant.js"></script>
-<script src="./js/toolbox.js"></script>
-<script src="./@blockly/demos/custom-dialogs/custom-dialog.js"></script>
+<script src="js/blockly/keyboard_nav.js"></script>
+<script src="js/blockly/playground.js"></script>
+<script src="js/init.js"></script>
+<script src="js/typed_variable.js"></script>
+<script src="js/buttons_functions.js"></script>
+<script src="js/dialog.js"></script>
+<script src="js/renderingConstant.js"></script>
+<script src="js/toolbox.js"></script>
+<script src="@blockly/demos/custom-dialogs/custom-dialog.js"></script>
 <!-- blocklyduino libraries of external functions -->
-<script src="./js/ace/ace.js" charset="utf-8"></script>
-<script src="./js/ace/ext-language_tools.js"></script>
+<script src="js/ace/ace.js" charset="utf-8"></script>
+<script src="js/ace/ext-language_tools.js"></script>
 <!-- S4E libraries of specific funtions definition -->
-<script src="./blocklyduino/js/override_toolbox.js"></script>
+<script src="blocklyduino/js/override_toolbox.js"></script>
 <!-- blocklyduino libraries of boards definition -->
-<script src="./blocklyduino/js/boards.json"></script>
-<script src="./blocklyduino/js/boards.js"></script>
+<script src="blocklyduino/js/boards.json"></script>
+<script src="blocklyduino/js/boards.js"></script>
 <!-- blocklyduino specific: block design -->
 <!-- <script src="./blocklyduino/blocks/blocks_colors.js" async></script> -->
-<script src="./blocklyduino/blocks/board/board_base.js" async></script>
-<script src="./blocklyduino/blocks/board/board_serial.js" async></script>
-<script src="./blocklyduino/blocks/blockly/logic.js" async></script>
-<script src="./blocklyduino/blocks/blockly/math.js" async></script>
-<script src="./blocklyduino/blocks/ds18b20/ds18b20.js" async></script>
-<script src="./blocklyduino/blocks/grove/grove.js" async></script>
-<script src="./blocklyduino/blocks/relay/relay.js" async></script>
-<script src="./blocklyduino/blocks/servo/servo.js" async></script>
-<script src="./blocklyduino/blocks/typed_variable.js" async></script>
+<script src="blocklyduino/blocks/board/board_base.js" async></script>
+<script src="blocklyduino/blocks/board/board_serial.js" async></script>
+<script src="blocklyduino/blocks/blockly/logic.js" async></script>
+<script src="blocklyduino/blocks/blockly/math.js" async></script>
+<script src="blocklyduino/blocks/ds18b20/ds18b20.js" async></script>
+<script src="blocklyduino/blocks/grove/grove.js" async></script>
+<script src="blocklyduino/blocks/relay/relay.js" async></script>
+<script src="blocklyduino/blocks/servo/servo.js" async></script>
+<script src="blocklyduino/blocks/typed_variable.js" async></script>
 <!-- blocklyduino specific: common generator code -->
-<script src="./generators/arduino_generator.js"></script>
-<script src="./blocklyduino/arduino/blockly/colour.js" async></script>
-<script src="./blocklyduino/arduino/blockly/lists.js" async></script>
-<script src="./blocklyduino/arduino/blockly/logic.js" async></script>
-<script src="./blocklyduino/arduino/blockly/loops.js" async></script>
-<script src="./blocklyduino/arduino/blockly/math.js" async></script>
-<script src="./blocklyduino/arduino/blockly/procedures.js" async></script>
-<script src="./blocklyduino/arduino/blockly/text.js" async></script>
+<script src="generators/arduino_generator.js"></script>
+<script src="blocklyduino/arduino/blockly/colour.js" async></script>
+<script src="blocklyduino/arduino/blockly/lists.js" async></script>
+<script src="blocklyduino/arduino/blockly/logic.js" async></script>
+<script src="blocklyduino/arduino/blockly/loops.js" async></script>
+<script src="blocklyduino/arduino/blockly/math.js" async></script>
+<script src="blocklyduino/arduino/blockly/procedures.js" async></script>
+<script src="blocklyduino/arduino/blockly/text.js" async></script>
 <!-- blocklyduino specific: addon generator code -->
-<script src="./blocklyduino/arduino/board/board_base.js" async></script>
-<script src="./blocklyduino/arduino/board/board_serial.js" async></script>
-<script src="./blocklyduino/arduino/typed_variable.js" async></script>
-<script src="./blocklyduino/arduino/addon/ds18b20.js" async></script>
-<script src="./blocklyduino/arduino/addon/grove.js" async></script>
-<script src="./blocklyduino/arduino/addon/relay.js" async></script>
-<script src="./blocklyduino/arduino/addon/servo.js" async></script>
+<script src="blocklyduino/arduino/board/board_base.js" async></script>
+<script src="blocklyduino/arduino/board/board_serial.js" async></script>
+<script src="blocklyduino/arduino/typed_variable.js" async></script>
+<script src="blocklyduino/arduino/addon/ds18b20.js" async></script>
+<script src="blocklyduino/arduino/addon/grove.js" async></script>
+<script src="blocklyduino/arduino/addon/relay.js" async></script>
+<script src="blocklyduino/arduino/addon/servo.js" async></script>
 <!-- blocklyduino specific -->
 <!-- Blockly themes added -->
-<script src="./blocklyduino/themes/bw.js" async></script>
-<script src="./blocklyduino/themes/themes_blocks.js" async></script>
-<script src="./blocklyduino/themes/themes_categories.js" async></script>
-<script src="./blocklyduino/themes/themes_components_override.js" async></script>
+<script src="blocklyduino/themes/bw.js" async></script>
+<script src="blocklyduino/themes/themes_blocks.js" async></script>
+<script src="blocklyduino/themes/themes_categories.js" async></script>
+<script src="blocklyduino/themes/themes_components_override.js" async></script>
 <script>
     ace.require("ace/ext/language_tools");
     var editor = ace.edit("content_code");
@@ -648,7 +655,29 @@
 <script src="https://edrys-org.github.io/edrys/module/edrys.js"></script>
 
 <script>
-    Edrys.onReady(() => console.log("Module is loaded!"));
+    window.run = function () {
+        try {
+            Edrys.sendMessage(Edrys.module.config?.runCommand || "execute", {
+                file: {
+                    "sketch.ino": Code.getArduino()
+                }
+            })
+        } catch (e) {
+            console.warn("Edrys not working")
+        }
+    }
+
+    Edrys.onReady(() => {
+        console.log("Module is loaded!")
+
+        let startCode = Edrys.module.config?.code
+
+        console.warn("WWWWWWWWWWWW", Edrys)
+
+        if (startCode) {
+            Code.loadBlocksfromXml(startCode, false)
+        }
+    });
 </script>
 
 </HTML>
