@@ -1,22 +1,43 @@
-# ![enter image description here](https://raw.githubusercontent.com/BlocklyDuino/BlocklyDuino2Electron/master/src/app.png) Welcome to BlocklyDuino2
+# ![enter image description here](https://raw.githubusercontent.com/BlocklyDuino/BlocklyDuino2Electron/master/src/app.png) BlocklyDuino2 - Edrys extensions
 
-BlocklyDuino is a **web-based program for editing and visual block programming editor for [Arduino](http://www.arduino.cc/)** electronic boards.
+This is an integration of the Blockly-Duino2 web-editor into the Edrys system, to enable students to program Arduinos collaboratively.
 
-BlocklyDuino is based on [Blockly](https://developers.google.com/blockly/), the web-based graphical programming editor.
+To use it in edrys import the following URL to your course:
 
-![](https://raw.githubusercontent.com/BlocklyDuino/BlocklyDuino-v2/master/blocklyduino/media/logo_built_on.png)
+`https://cross-lab-project.github.io/edrys_module-blockly-duino-v2/index.html`
 
-This new v2 version is also based on the work done on [STudio4Education](https://github.com/A-S-T-U-C-E/STudio4Education), a similar project for [STmicroelectronics](https://www.st.com/) boards, and inspired by all fork of BlocklyDuino's original Gasolin's work.
+## Configuration
 
-It provides static type language blocks and code generators for simple Arduino programming.
+Currently there are two options for the __general settings__, that you can set in the configuration:
 
-BlocklyDuino also supports some [Grove](https://wiki.seeedstudio.com/Grove_System/) blocks to easily get started with microcontroller-based experimentation and learning.
+``` json
+{
+    "code": "<xml xmlns=\"https://developers.google.com/blockly/xml\">\n  <block type=\"controls_repeat\" id=\"K7oc2pEWX**_W;yu~U|X\" x=\"238\" y=\"88\">\n    <field name=\"TIMES\">10</field>\n    <statement name=\"DO\">\n      <block type=\"controls_if\" id=\"=r$MWru{9uYTo[x*(#D}\">\n        <next>\n          <block type=\"controls_if\" id=\"qiy}cnAM!l%bQ0bbpYO,\"></block>\n        </next>\n      </block>\n    </statement>\n  </block>\n</xml>",
+    "runCommand": "execute"
+}
+```
 
-## BlocklyDuino's Demo
+or if you are cunning the crosslab-fork, you can also use the following yaml:
 
-BlocklyDuino2 is a simple webware, you can give it a try [here.](https://blocklyduino.github.io/BlocklyDuino-v2/)
+``` yaml
+runCommand: execute
+code: |-
+  <xml xmlns="https://developers.google.com/blockly/xml">
+    <block type="controls_repeat" id="K7oc2pEWX**_W;yu~U|X" x="238" y="88">
+      <field name="TIMES">10</field>
+      <statement name="DO">
+        <block type="controls_if" id="=r$MWru{9uYTo[x*(#D}">
+          <next>
+            <block type="controls_if" id="qiy}cnAM!l%bQ0bbpYO,"></block>
+          </next>
+        </block>
+      </statement>
+    </block>
+  </xml>
+```
 
-You can download it [here](https://github.com/BlocklyDuino/BlocklyDuino-v2) and launch `index.html`.
+* The `code` is used to initialize the editor, otherwise an empty project will be presented.
+* The `runCommand` is by default set to "execute" it publishes the current Arduino-code, so that for example the with the [pyxterm-module](https://github.com/Cross-Lab-Project/edrys_module-pyxtermjs), where this topic has to match the `execute` setting.
 
 ## Features
 
@@ -71,10 +92,6 @@ The prefered way is to put the BlocklyDuino/web folder into a web server and ope
 3. Copy all of the source code into an existing or new project in the Arduino IDE.
 4. Configure your Arduino IDE with the rght board and communication port.
 5. Press the 'Upload' button in the Arduino IDE to burn the code into a connected Arduino board.
-
-## Integrated Arduino upload
-
-You can try an [Electron](https://www.electronjs.org/) version with [arduino-cli](https://github.com/arduino/arduino-cli) embbeded for an off-line version: [https://github.com/BlocklyDuino/BlocklyDuino2Electron](https://github.com/BlocklyDuino/BlocklyDuino2Electron)
 
 ## ChangeLog
 
