@@ -40,6 +40,10 @@ Code.renderContent = function () {
     var codePeakPre = document.getElementById('content_code');
     var generatedCode = Blockly.Arduino.workspaceToCode(Code.workspace);
     editor.setValue(generatedCode, 1);
+
+    if (window.edrysCallback) {
+        window.edrysCallback()
+    }
 };
 
 /**

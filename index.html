@@ -667,12 +667,61 @@
         }
     }
 
+    Edrys.onMessage(({
+        from,
+        subject,
+        body
+    }) => {
+        if (from == Edrys.username) {
+            //window.edrysCallbackBlock = true
+            return
+        }
+
+        switch (subject) {
+            case "xml": {
+                var xml = Blockly.Xml.workspaceToDom(Blockly.getMainWorkspace());
+                var text = Blockly.Xml.domToText(xml);
+
+                if (text != body) {
+                    window.edrysCallbackBlock = 7
+                    Code.loadBlocksfromXml(body, false)
+                }
+                break
+            }
+            default: {
+                console.warn("Unknown message type:", subject, body)
+            }
+        }
+    })
+
+    function callback(delay=2000) {
+        let timerID = null
+
+        function publish() {
+            const xml = Blockly.Xml.workspaceToDom(Blockly.getMainWorkspace());
+            const text = Blockly.Xml.domToText(xml);
+            Edrys.sendMessage("xml", text)
+
+            timerID = null
+        }
+
+        return () => {
+            if (timerID) {
+                window.clearTimeout(timerID)
+            }
+
+            timerID = window.setTimeout(publish, delay)
+        }
+
+
+    }
+
     Edrys.onReady(() => {
         console.log("Module is loaded!")
 
         let startCode = Edrys.module.config?.code
 
-        console.warn("WWWWWWWWWWWW", Edrys)
+        window.edrysCallback = callback()
 
         if (startCode) {
             Code.loadBlocksfromXml(startCode, false)
