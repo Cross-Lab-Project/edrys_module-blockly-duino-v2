@@ -13,7 +13,8 @@ Currently there are two options for the __general settings__, that you can set i
 ``` json
 {
     "code": "<xml xmlns=\"https://developers.google.com/blockly/xml\">\n  <block type=\"controls_repeat\" id=\"K7oc2pEWX**_W;yu~U|X\" x=\"238\" y=\"88\">\n    <field name=\"TIMES\">10</field>\n    <statement name=\"DO\">\n      <block type=\"controls_if\" id=\"=r$MWru{9uYTo[x*(#D}\">\n        <next>\n          <block type=\"controls_if\" id=\"qiy}cnAM!l%bQ0bbpYO,\"></block>\n        </next>\n      </block>\n    </statement>\n  </block>\n</xml>",
-    "runCommand": "execute"
+    "runCommand": "execute",
+    "board": "arduino_mega"
 }
 ```
 
@@ -21,6 +22,7 @@ or if you are cunning the crosslab-fork, you can also use the following yaml:
 
 ``` yaml
 runCommand: execute
+board: arduino_mega
 code: |-
   <xml xmlns="https://developers.google.com/blockly/xml">
     <block type="controls_repeat" id="K7oc2pEWX**_W;yu~U|X" x="238" y="88">
@@ -36,8 +38,20 @@ code: |-
   </xml>
 ```
 
+
 * The `code` is used to initialize the editor, otherwise an empty project will be presented.
 * The `runCommand` is by default set to "execute" it publishes the current Arduino-code, so that for example the with the [pyxterm-module](https://github.com/Cross-Lab-Project/edrys_module-pyxtermjs), where this topic has to match the `execute` setting.
+* `board` is optional, if you want to have serial communication then specify a board, supported boards are:
+
+  * `arduino_leonardo`
+  * `arduino_mega`
+  * `arduino_micro`
+  * `arduino_nano`
+  * `arduino_pro8`
+  * `arduino_pro16`
+  * `arduino_uno`
+  * `arduino_yun`
+  * `lilypad`
 
 ## Features
 

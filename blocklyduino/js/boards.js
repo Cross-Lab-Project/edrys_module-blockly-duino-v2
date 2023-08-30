@@ -19,8 +19,10 @@ profile.default = profile["none"][0];
 /**
  * Set board when click in board modal
  */
-Code.setBoard = function () {
-    var boardId = Code.getStringParamFromUrl('board', '');
+Code.setBoard = function (boardId) {
+	if (boardId == undefined) {
+		boardId = Code.getStringParamFromUrl('board', '');
+	}
     if (!boardId) {
         boardId = "none";
     }
@@ -29,29 +31,51 @@ Code.setBoard = function () {
 };
 
 /**
- * Set board throught URL
+ * Set board throught URL or directly
+ * 
+ * allowed values for boardId:
+ * 
+ * - undefined
+ * - "arduino_leonardo"
+ * - "arduino_mega"
+ * - "arduino_micro"
+ * - "arduino_nano"
+ * - "arduino_pro8"
+ * - "arduino_pro16"
+ * - "arduino_uno"
+ * - "arduino_yun"
+ * - "lilypad"
+ * 
+ * @param {string} boardId 
  */
-Code.changeBoard = function ()  {
-    var boardMenu = document.getElementById('boardDescriptionSelector');
-    var newBoard = encodeURIComponent(boardMenu.options[boardMenu.selectedIndex].value);
-    var search = window.location.search;
-    if (search.length <= 1) {
-        search = '?board=' + newBoard;
-    } else if (search.match(/[?&]board=[^&]*/)) {
-        search = search.replace(/([?&]board=)[^&]*/, '$1' + newBoard);
-    } else {
-        search = search.replace(/\?/, '?board=' + newBoard + '&');
-    }
-    profile["default"] = profile[newBoard][0];
-	document.getElementById("boardDescriptionSelector").selectedIndex = newBoard;
-	document.getElementById("boardDescriptionSelector").value = newBoard;
-	document.getElementById("boardSelected_span").textContent = profile["default"].description;
-	document.getElementById("portSelected_span").textContent = ' : ' + document.getElementById('serialMenu').options[document.getElementById('serialMenu').selectedIndex].value;
-	window.history.pushState({}, "blocklyduino", window.location.host + window.location.pathname + search);
-	// "reboot" elements
-	document.getElementById('overlayForModals').style.display = "none";
-	document.getElementById('boardListModal').classList.remove('show');
-	Code.setBoard();
+Code.changeBoard = function (boardId) {
+	var newBoard = boardId;
+
+	if (boardId == undefined) {
+		var boardMenu = document.getElementById('boardDescriptionSelector');
+		newBoard = encodeURIComponent(boardMenu.options[boardMenu.selectedIndex].value);
+		var search = window.location.search;
+		if (search.length <= 1) {
+			search = '?board=' + newBoard;
+		} else if (search.match(/[?&]board=[^&]*/)) {
+			search = search.replace(/([?&]board=)[^&]*/, '$1' + newBoard);
+		} else {
+			search = search.replace(/\?/, '?board=' + newBoard + '&');
+		}
+		profile["default"] = profile[newBoard][0];
+		document.getElementById("boardDescriptionSelector").selectedIndex = newBoard;
+		document.getElementById("boardDescriptionSelector").value = newBoard;
+		document.getElementById("boardSelected_span").textContent = profile["default"].description;
+		document.getElementById("portSelected_span").textContent = ' : ' + document.getElementById('serialMenu').options[document.getElementById('serialMenu').selectedIndex].value;
+		window.history.pushState({}, "blocklyduino", window.location.host + window.location.pathname + search);
+		// "reboot" elements
+		document.getElementById('overlayForModals').style.display = "none";
+		document.getElementById('boardListModal').classList.remove('show');
+	}
+	
+	
+	
+	Code.setBoard(boardId);
 	Code.buildToolbox();
 	var xml = Blockly.Xml.workspaceToDom(Code.workspace);
 	Blockly.Xml.domToWorkspace(xml, Code.workspace);

@@ -195,6 +195,31 @@
                         </div>
                     </div>
 
+                    <button id="boardButton" class="iconButtons" onclick="Code.boardsListModalShow()">
+                            <span id="boardButton_span">
+                                <i class="fas fa-microchip"></i>
+                            </span>
+                        </button>
+                        <button id="verifyButton" class="iconButtons">
+                            <span id="verifyButton_span">
+                                <i class="fas fa-check"></i>
+                            </span>
+                        </button>
+                        <button id="serialButton" class="iconButtons" onclick="Code.portsListModalShow()">
+                            <span id="serialButton_span">
+                                <i class="fab fa-usb"></i>
+                            </span>
+                        </button>
+                        <button id="uploadButton" class="iconButtons">
+                            <span id="uploadButton_span">
+                                <i class="fas fa-sign-out-alt"></i>
+                            </span>
+                        </button>
+                        <button id="serialConnectButton" class="iconButtons">
+                            <span id="serialConnectButton_span">
+                                <i class="fas fa-search"></i>
+                            </span>
+                        </button>
 
                     <div style="float:right">
                         <button id="copyCodeButton" class="iconButtons" onclick="Code.copyToClipboard()">
@@ -719,14 +744,25 @@
     Edrys.onReady(() => {
         console.log("Module is loaded!")
 
-        let startCode = Edrys.module.config?.code
+        const startCode = Edrys.module.config?.code
+        const board = Edrys.module.config?.board
+        
 
         window.edrysCallback = callback()
 
         if (startCode) {
             Code.loadBlocksfromXml(startCode, false)
         }
+
+        if (board) {
+            Code.changeBoard(board)
+        }
     });
+
+   
+        
+
+   
 </script>
 
 </HTML>
