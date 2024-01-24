@@ -52,7 +52,10 @@ Code.changeBoard = function (boardId) {
 	var newBoard = boardId;
 
 	if (boardId == undefined) {
+		
 		var boardMenu = document.getElementById('boardDescriptionSelector');
+
+
 		newBoard = encodeURIComponent(boardMenu.options[boardMenu.selectedIndex].value);
 		var search = window.location.search;
 		if (search.length <= 1) {
@@ -72,8 +75,6 @@ Code.changeBoard = function (boardId) {
 		document.getElementById('overlayForModals').style.display = "none";
 		document.getElementById('boardListModal').classList.remove('show');
 	}
-	
-	
 	
 	Code.setBoard(boardId);
 	Code.buildToolbox();

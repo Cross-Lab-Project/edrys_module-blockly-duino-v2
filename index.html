@@ -682,11 +682,8 @@
 <script>
     window.run = function () {
         try {
-            Edrys.sendMessage(Edrys.module.config?.runCommand || "execute", {
-                file: {
-                    "sketch.ino": Code.getArduino()
-                }
-            })
+            console.warn("Edrys is working", Edrys)
+            Edrys.sendMessage(Edrys.module.config?.runCommand || "execute", Code.getArduino())
         } catch (e) {
             console.warn("Edrys not working")
         }
@@ -742,21 +739,22 @@
     }
 
     Edrys.onReady(() => {
-        console.log("Module is loaded!")
-
-        const startCode = Edrys.module.config?.code
-        const board = Edrys.module.config?.board
         
+        const startCode = Edrys.module.config.code
+        const board = Edrys.module.config.board       
 
-        window.edrysCallback = callback()
-
-        if (startCode) {
-            Code.loadBlocksfromXml(startCode, false)
-        }
+        
 
         if (board) {
             Code.changeBoard(board)
         }
+
+        if (startCode) {
+            console.warn("Loading code from Edrys", startCode)
+            Code.loadBlocksfromXml(startCode, false)
+        }
+
+        window.edrysCallback = callback()
     });
 
    
